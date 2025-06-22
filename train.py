@@ -15,7 +15,7 @@ class Args:
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     batch_size = 2
     num_workers = 2
-    epochs = 1
+    epochs = 80
     learning_rate = 1e-4
     dataset_root = './3D-ETF'
     dataset_name = 'RAVDESS'  # 또는 "HDTF"
@@ -46,7 +46,7 @@ def train():
     for epoch in range(1, args.epochs + 1):
         model.train()
         epoch_loss = 0.0
-        pbar = tqdm(loader, desc=f"Epoch {epoch + 40}")
+        pbar = tqdm(loader, desc=f"Epoch {epoch}")
 
         for batch in pbar:
             for key in batch:
